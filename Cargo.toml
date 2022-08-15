@@ -1,0 +1,22 @@
+[package]
+name = "shaper_2d"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "0.8"
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+lto = "thin"
+
+[target.wasm32-unknown-unknown]
+runner = "wasm-server-runner"
